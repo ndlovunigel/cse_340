@@ -16,4 +16,17 @@ router.get('/trigger-error', (req, res, next) => {
     next(error);
   });
 
+// Route to build management view
+router.get("/", utilities.handleErrors((invController.buildManagement)));
+
+// Route to add new classification
+router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
+
+router.post("/add-classification", utilities.handleErrors(invController.insertClassification));
+
+// Route to add new vehicle
+router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory));
+
+router.post("/add-inventory", utilities.handleErrors(invController.insertInventory));
+
 module.exports = router;
